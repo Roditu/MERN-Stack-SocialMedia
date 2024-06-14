@@ -1,0 +1,21 @@
+networks:
+  lw24_kelompok_7_network:
+    driver: bridge
+
+services:
+  frontend-lw24-kelompok-7:
+    image: 10.3.142.201:5000/5024211056-frontend:2
+    container_name: frontend-lw24-kelompok-7
+    ports:
+      - 5005:80
+    depends_on:
+      - backend-lw24-kelompok-7
+    networks:
+      - lw24_kelompok_7_network
+
+  backend-lw24-kelompok-7:
+    image: 10.3.142.201:5000/5024211056-backend:2
+    container_name: backend-lw24-kelompok-7
+
+    networks:
+      - lw24_kelompok_7_network
